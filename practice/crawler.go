@@ -1,13 +1,9 @@
-package main
+package practice
 
 import (
-	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
-	"os"
 	"regexp"
-	"strconv"
 	"strings"
 )
 
@@ -55,24 +51,25 @@ func crawl(depth int, link string, word string, dataCollection map[string]map[st
 
 	}
 }
-func main() {
 
-	args := os.Args
+// func main() {
 
-	link := args[1]
-	if !strings.HasPrefix(link, "http://") {
-		link = "http://" + link
-	}
-	depth, _ := strconv.Atoi(args[2])
-	word := args[3]
+// 	args := os.Args
 
-	// start crawling
-	dataCollection := make(map[string]map[string]int)
-	crawl(depth, link, word, dataCollection)
+// 	link := args[1]
+// 	if !strings.HasPrefix(link, "http://") {
+// 		link = "http://" + link
+// 	}
+// 	depth, _ := strconv.Atoi(args[2])
+// 	word := args[3]
 
-	// print the collected data
-	j, err := json.MarshalIndent(dataCollection, "", "  ")
-	if err == nil {
-		fmt.Println(string(j))
-	}
-}
+// 	// start crawling
+// 	dataCollection := make(map[string]map[string]int)
+// 	crawl(depth, link, word, dataCollection)
+
+// 	// print the collected data
+// 	j, err := json.MarshalIndent(dataCollection, "", "  ")
+// 	if err == nil {
+// 		fmt.Println(string(j))
+// 	}
+// }
